@@ -88,6 +88,11 @@ data class GameField (
             }
         }
 
+        if(figurePins.isEmpty()){
+            return false
+        }
+
+
         //if all ok, move all figures
         for (i in figurePins) {
             i.y += 1
