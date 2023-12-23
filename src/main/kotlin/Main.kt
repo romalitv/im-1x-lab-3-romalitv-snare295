@@ -1,7 +1,6 @@
 package com.lab3
 import java.io.File
 
-
 interface MainOutput {
   fun printLine(msg: String)
 }
@@ -13,9 +12,7 @@ interface IO {
 
 fun main(args: Array<String>) {
   val output = object : MainOutput {
-    override fun printLine(msg: String) {
-      println(msg)
-    }
+    override fun printLine(msg: String) = println(msg)
   }
 
   val ioController = object : IO {
@@ -27,49 +24,42 @@ fun main(args: Array<String>) {
 }
 
 fun mainHandler(args: Array<String>, output: MainOutput, ioObj: IO) {
+
+  val errorMessages = ErrorMessages()
+
   if (args.isEmpty()) {
-    output.printLine(Messages.noArgs)
+    output.printLine(errorMessages.noArgs)
     return
   }
 
   val inputFilePath = args[0]
   if (!ioObj.ifFileExist(inputFilePath)) {
-    output.printLine(Messages.inputFileDoesNotExist)
+    output.printLine(errorMessages.inputFileDoesNotExist)
     return
   }
 
   val field = try {
     parseGameField(ioObj.readFileAsString(inputFilePath))
-  } catch (e: Exception) {
-    null
-  }
+  } catch (e: Exception) { null }
 
   if (field == null) {
-    output.printLine(Messages.inputFileContainsSmthWrong)
+    output.printLine(errorMessages.inputFileContainsSmthWrong)
   } else if(field is GameField){
     output.printLine(returnGameField(field))
   }
 }
 
-object Messages {
-  val noArgs = """
-    To play Tertrisss(R) you need to create file
-    that contains height, width, and field with pieces
-    Example:
-    5 5
-    .....
-    .ppp.
-    ..p..
-    .#.#.
-    #####
-    > tetrisss input.txt
-  """.trimIndent()
+class ErrorMessages {
+  val noArgs = "To play Tertrisss(R) you need to create a file\n" +
+               "that contains height, width, and field with pieces\n" +
+               "Example:\n" +
+               "5 5\n" +
+               ".....\n" +
+               ".ppp.\n" +
+               "..p..\n" +
+               ".#.#.\n" +
+               "#####\n"
 
-  val inputFileDoesNotExist = """
-    Input file doesn't exist
-  """.trimIndent()
-
-  val inputFileContainsSmthWrong = """
-    inputFileContainsSmthWrong
-  """.trimIndent()
+  val inputFileDoesNotExist = "Input file doesn't exist"
+  val inputFileContainsSmthWrong = "Input file contains something wrong"
 }
