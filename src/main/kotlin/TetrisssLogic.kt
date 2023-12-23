@@ -14,7 +14,7 @@ data class GameField (
     private val sizeY : Int,
 
     private var squares : MutableSet<Pin>,
-    ) {
+) {
 
     init {
         checkForSize()
@@ -25,7 +25,7 @@ data class GameField (
             if( i.x > sizeX || i.x < 0){
                 throw IllegalArgumentException("Invalid data for GameField, position of Pin is not inbound")
             }
-            
+
             if( i.y > sizeY || i.y < 0){
                 throw IllegalArgumentException("Invalid data for GameField, position of Pin is not inbound")
             }
@@ -42,7 +42,7 @@ data class GameField (
         for (i in squares) {
             if(i is PinFigure){
                 x.add(i)
-            } 
+            }
         }
 
         return x
@@ -55,7 +55,7 @@ data class GameField (
             if(i is PinBlock){
                 x.add(i)
             }
-            
+
         }
         return x
     }
@@ -64,7 +64,7 @@ data class GameField (
         return sizeX
     }
 
-    
+
     fun getSizeY() : Int {
         return sizeY
     }
@@ -75,7 +75,7 @@ data class GameField (
         for (i in figurePins) {
 
             //border check
-            if(i.y+1 > sizeY){
+            if(i.y + 1 >= sizeY){
                 return false
             } else {
                 for (j in blockPins) {

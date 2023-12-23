@@ -15,6 +15,8 @@ class TetrisssLogicTest {
         assertTrue(gameField.moveFiguresStep())
 
         assertEquals(1, figurePin.y)
+        assertEquals(0, figurePin.x)
+        assertEquals(1, blockPin.y)
         assertEquals(1, blockPin.y)
     }
 
@@ -26,7 +28,7 @@ class TetrisssLogicTest {
 
         gameField.moveFiguresEnd()
 
-        assertEquals(5, figurePin.y)
+        assertEquals(4, figurePin.y)
         assertEquals(1, blockPin.y)
     }
 
@@ -47,9 +49,9 @@ class TetrisssLogicTest {
         val figurePin = PinFigure(0, 4)
         val gameField = GameField(5, 5, mutableSetOf(figurePin))
 
-        assertTrue(gameField.moveFiguresStep())
+        assertFalse(gameField.moveFiguresStep())
 
-        assertEquals(5, figurePin.y)
+        assertEquals(4, figurePin.y)
     }
 
     @Test
