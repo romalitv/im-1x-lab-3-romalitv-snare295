@@ -57,18 +57,20 @@ data class GameField (
     }
 
 
-    /* Makes move, return true when game ended */
+    /* Makes move, return false when game ended */
     fun moveFiguresStep() : Boolean{
 
         for (i in figurePins) {
+
+            //border check
             if(i.y+1 > sizeY){
-                return true
+                return false
             } else {
                 for (j in blockPins) {
 
                     //collision check
                     if(i.y+1 == j.y && i.x == j.x){
-                        return true
+                        return false
                     }
                 }
             }
@@ -78,7 +80,16 @@ data class GameField (
         for (i in figurePins) {
             i.y += 1
         }
-        return false
+        return true
+    }
+
+    fun moveFiguresEnd(){
+
+        var i : Boolean = true
+        while(i){
+            i = moveFiguresStep()
+        }
+
     }
 
     fun getFieldPins() : Set<Pin>{
