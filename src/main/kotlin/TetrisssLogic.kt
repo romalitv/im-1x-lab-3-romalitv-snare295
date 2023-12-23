@@ -60,6 +60,14 @@ data class GameField (
         return x
     }
 
+    fun getSizeX() : Int {
+        return sizeX
+    }
+
+    
+    fun getSizeY() : Int {
+        return sizeY
+    }
 
     /* Makes move, return false when game ended */
     fun moveFiguresStep() : Boolean{
