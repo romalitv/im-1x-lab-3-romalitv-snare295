@@ -1,3 +1,5 @@
+package com.lab3
+
 
 interface Pin {
     var x : Int
@@ -14,19 +16,21 @@ data class GameField (
     private var squares : MutableSet<Pin>,
     ) {
 
+    init {
+        checkForSize()
+    }
+
     private fun checkForSize() {
         for (i in squares) {
             if( i.x > sizeX || i.x < 0){
-                throw IllegalArgumentException("Invaid data for GameField, position of Pin is not inbound")         
+                throw IllegalArgumentException("Invalid data for GameField, position of Pin is not inbound")
             }
             
             if( i.y > sizeY || i.y < 0){
-                throw IllegalArgumentException("Invaid data for GameField, position of Pin is not inbound")         
+                throw IllegalArgumentException("Invalid data for GameField, position of Pin is not inbound")
             }
         }
     }
-
-    checkForSize()
 
     private var figurePins : MutableSet<Pin> = sortSquaresFigures()
     private var blockPins : MutableSet<Pin> = sortSquaresBlocks()
