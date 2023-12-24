@@ -1,6 +1,6 @@
 # Calculator
 
-Tests are located in [src/test/kotlin](https://github.com/future-stardust/im-1x-lab-2-romalitv/tree/master/src/test/kotlin)
+Tests are located in [src/test/kotlin](https://github.com/romalitv/im-1x-lab-3-romalitv-snare295/tree/master/src/test/kotlin)
 
 To run the programm :
 
@@ -10,7 +10,7 @@ Secondly, you must enter the program arguments the path to the location of your 
 
 Example: 
 
-![program argument](https://github.com/future-stardust/im-1x-lab-2-romalitv/tree/master/images/programm_argument.png)
+![program argument](https://github.com/romalitv/im-1x-lab-3-romalitv-snare295/tree/master/images/programm_argument.png)
 
 To run tests :
 
