@@ -1,4 +1,4 @@
-# Calculator
+# Tetris
 
 Tests are located in [src/test/kotlin](https://github.com/romalitv/im-1x-lab-3-romalitv-snare295/tree/master/src/test/kotlin)
 
