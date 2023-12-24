@@ -1,5 +1,6 @@
 package com.lab3
 import java.io.File
+import java.io.FileWriter
 
 interface MainOutput {
   fun printLine(msg: String)
@@ -44,8 +45,10 @@ fun mainHandler(args: Array<String>, output: MainOutput, ioObj: IO) {
 
   if (field == null) {
     output.printLine(errorMessages.inputFileContainsSmthWrong)
-  } else if(field is GameField){
-    output.printLine(returnGameField(field))
+  } else if(field is GameField) {
+    val finalField = returnGameField(field)
+    output.printLine(finalField)
+    FileWriter("src/main/resources/output.txt", true).use { it.write(finalField) }
   }
 }
 
