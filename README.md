@@ -10,10 +10,10 @@ Secondly, you must enter the program arguments the path to the location of your 
 
 Example: 
 
-![program argument](https://github.com/romalitv/im-1x-lab-3-romalitv-snare295/tree/master/images/programm_argument.png)
+![program argument](https://github.com/romalitv/im-1x-lab-3-romalitv-snare295/blob/master/images/programm_argument.png)
 
 To run tests :
 
 ``` ./gradlew test ```
 
-Created by : Roman Lytvyniuk IM-13
+Created by : Roman Lytvyniuk IM-13 & Vlad Neumytyi IM-13
